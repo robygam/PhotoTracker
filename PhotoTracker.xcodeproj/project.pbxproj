@@ -21,8 +21,9 @@
 		56A60A7A28B2A6CA0073D343 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A7928B2A6CA0073D343 /* DataProvider.swift */; };
 		56A60A7D28B2A7080073D343 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A7C28B2A7080073D343 /* FlickrAPI.swift */; };
 		56A60A7F28B2A7250073D343 /* FlickrServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A7E28B2A7250073D343 /* FlickrServices.swift */; };
-		56A60A8228B2A7A30073D343 /* LocationPhotoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A8128B2A7A30073D343 /* LocationPhotoCard.swift */; };
+		56A60A8228B2A7A30073D343 /* PhotoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A8128B2A7A30073D343 /* PhotoCard.swift */; };
 		56A60A8528B2A7E70073D343 /* StatefulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A8428B2A7E70073D343 /* StatefulView.swift */; };
+		56A60A8A28B2C3980073D343 /* PhotoCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A8928B2C3980073D343 /* PhotoCardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +61,10 @@
 		56A60A7928B2A6CA0073D343 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		56A60A7C28B2A7080073D343 /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
 		56A60A7E28B2A7250073D343 /* FlickrServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrServices.swift; sourceTree = "<group>"; };
-		56A60A8128B2A7A30073D343 /* LocationPhotoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPhotoCard.swift; sourceTree = "<group>"; };
+		56A60A8128B2A7A30073D343 /* PhotoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCard.swift; sourceTree = "<group>"; };
 		56A60A8428B2A7E70073D343 /* StatefulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulView.swift; sourceTree = "<group>"; };
 		56A60A8628B2B1AC0073D343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		56A60A8928B2C3980073D343 /* PhotoCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,8 +192,8 @@
 		56A60A8028B2A7800073D343 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				56A60A8828B2C35F0073D343 /* Components */,
 				56A60A4228B0D2870073D343 /* ContentView.swift */,
-				56A60A8128B2A7A30073D343 /* LocationPhotoCard.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -202,6 +204,15 @@
 				56A60A8428B2A7E70073D343 /* StatefulView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		56A60A8828B2C35F0073D343 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				56A60A8128B2A7A30073D343 /* PhotoCard.swift */,
+				56A60A8928B2C3980073D343 /* PhotoCardViewModel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +348,7 @@
 				56A60A7128B293020073D343 /* LocationPersistenceController.swift in Sources */,
 				56A60A4328B0D2870073D343 /* ContentView.swift in Sources */,
 				56A60A7F28B2A7250073D343 /* FlickrServices.swift in Sources */,
-				56A60A8228B2A7A30073D343 /* LocationPhotoCard.swift in Sources */,
+				56A60A8228B2A7A30073D343 /* PhotoCard.swift in Sources */,
 				56A60A6B28B0D2B20073D343 /* LocationPublisher.swift in Sources */,
 				56A60A7A28B2A6CA0073D343 /* DataProvider.swift in Sources */,
 				56A60A4128B0D2870073D343 /* PhotoTrackerApp.swift in Sources */,
@@ -345,6 +356,7 @@
 				56A60A7828B2A6B00073D343 /* APIClient.swift in Sources */,
 				56A60A8528B2A7E70073D343 /* StatefulView.swift in Sources */,
 				56A60A7D28B2A7080073D343 /* FlickrAPI.swift in Sources */,
+				56A60A8A28B2C3980073D343 /* PhotoCardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

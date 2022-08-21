@@ -1,5 +1,5 @@
 //
-//  LocationPhotoCard.swift
+//  PhotoCard.swift
 //  PhotoTracker
 //
 //  Created by Roberto Garcia on 21/08/2022.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct LocationPhotoCard: View {
+struct PhotoCard: View {
     @StateObject var viewModel: ViewModel
 
     var body: some View {
@@ -54,47 +54,8 @@ struct LocationPhotoCard: View {
 
 struct LocationPhotoCard_Previews: PreviewProvider {
     static var previews: some View {
-        LocationPhotoCard(viewModel: LocationPhotoCard.ViewModel(latitude: 30, longitude: -122))
+        PhotoCard(viewModel: PhotoCard.ViewModel(latitude: 30, longitude: -122))
             .padding()
             .previewLayout(.sizeThatFits)
-    }
-}
-
-extension LocationPhotoCard {
-    class ViewModel: StatefullViewModel, ObservableObject {
-        @Published var state: ViewState
-        @Published var photoURL: String = String() {
-            didSet {
-                didChange.send(self)
-            }
-        }
-
-        var latitude: Double
-        var longitude: Double
-        
-        let didChange = PassthroughSubject<LocationPhotoCard.ViewModel, Never>()
-
-        init(latitude: Double, longitude: Double) {
-            self.latitude = latitude
-            self.longitude = longitude
-            
-            self.state = .loading
-            
-            fetchPhoto()
-        }
-        
-        func fetchPhoto() {
-            state = .loading
-        
-            FlickrServices().searchPhotos(latitude: latitude, longitude: longitude) { result in
-                switch result {
-                case .success(let searchResult):
-                    self.photoURL = searchResult.photoURL
-                    self.state = .ready
-                case .failure(let error):
-                    self.state = .failed(error)
-                }
-            }
-        }
     }
 }
