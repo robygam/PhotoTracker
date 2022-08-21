@@ -13,7 +13,6 @@ struct PersistenceLocation: Identifiable {
     let id = UUID()
     let latitude: Double
     let longitude: Double
-    let timestamp = Date()
 }
 
 class LocationPersistenceController: ObservableObject {
@@ -23,6 +22,9 @@ class LocationPersistenceController: ObservableObject {
     @Published var locations: [PersistenceLocation] = []
         
     func add(location: CLLocation) {
-        locations.append(PersistenceLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
+        // Locations added in the top so they are shown from latests to oldest.
+        // I considered adding an extra property like timestamp but didn't to make it simpler.
+        locations.insert(PersistenceLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), at: 0)
     }
+    
 }

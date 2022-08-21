@@ -15,8 +15,7 @@ struct ContentView: View {
         ZStack {
             List {
                 ForEach(persistenceController.locations) { location in
-                    Text("Lat: \(location.latitude), Lon: \(location.longitude)")
-//                    LocationPhotoCard(viewModel: LocationPhotoCard.ViewModel(latitude: location.latitude, longitude: location.longitude))
+                    LocationPhotoCard(viewModel: LocationPhotoCard.ViewModel(latitude: location.latitude, longitude: location.longitude))
                         .listRowSeparator(.hidden)
                 }
             }
