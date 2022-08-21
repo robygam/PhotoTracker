@@ -13,22 +13,16 @@ struct PersistenceLocation: Identifiable {
     let id = UUID()
     let latitude: Double
     let longitude: Double
-    let timestamp: Date
+    let timestamp = Date()
 }
 
 class LocationPersistenceController: ObservableObject {
     
     static let shared = LocationPersistenceController()
     
-    @Published var locations = [PersistenceLocation] () {
-        didSet {
-            didChange.send(locations)
-        }
-    }
-    
-    let didChange = PassthroughSubject<[PersistenceLocation], Never>()
-    
+    @Published var locations: [PersistenceLocation] = []
+        
     func add(location: CLLocation) {
-        locations.append(PersistenceLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, timestamp: Date()))
+        locations.append(PersistenceLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
     }
 }
