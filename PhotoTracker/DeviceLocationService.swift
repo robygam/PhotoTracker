@@ -11,12 +11,9 @@ import CoreLocation
 
 class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
 
-    var coordinatesPublisher = PassthroughSubject<CLLocationCoordinate2D, Error>()
+    var coordinatesPublisher = PassthroughSubject<CLLocation, Never>()
     var deniedLocationAccessPublisher = PassthroughSubject<Void, Never>()
 
-    private override init() {
-        super.init()
-    }
     static let shared = DeviceLocationService()
 
     private lazy var locationManager: CLLocationManager = {
@@ -54,10 +51,6 @@ class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObje
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        coordinatesPublisher.send(location.coordinate)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        coordinatesPublisher.send(completion: .failure(error))
+        coordinatesPublisher.send(location)
     }
 }

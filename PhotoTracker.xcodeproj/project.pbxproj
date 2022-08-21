@@ -15,6 +15,7 @@
 		56A60A5C28B0D2880073D343 /* PhotoTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A5B28B0D2880073D343 /* PhotoTrackerUITests.swift */; };
 		56A60A5E28B0D2880073D343 /* PhotoTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A5D28B0D2880073D343 /* PhotoTrackerUITestsLaunchTests.swift */; };
 		56A60A6B28B0D2B20073D343 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A6A28B0D2B20073D343 /* DeviceLocationService.swift */; };
+		56A60A7128B293020073D343 /* LocationPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A7028B293020073D343 /* LocationPersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		56A60A5B28B0D2880073D343 /* PhotoTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTrackerUITests.swift; sourceTree = "<group>"; };
 		56A60A5D28B0D2880073D343 /* PhotoTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		56A60A6A28B0D2B20073D343 /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
+		56A60A7028B293020073D343 /* LocationPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				56A60A4428B0D2880073D343 /* Assets.xcassets */,
 				56A60A4628B0D2880073D343 /* Preview Content */,
 				56A60A6A28B0D2B20073D343 /* DeviceLocationService.swift */,
+				56A60A7028B293020073D343 /* LocationPersistenceController.swift */,
 			);
 			path = PhotoTracker;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A60A7128B293020073D343 /* LocationPersistenceController.swift in Sources */,
 				56A60A4328B0D2870073D343 /* ContentView.swift in Sources */,
 				56A60A6B28B0D2B20073D343 /* DeviceLocationService.swift in Sources */,
 				56A60A4128B0D2870073D343 /* PhotoTrackerApp.swift in Sources */,
