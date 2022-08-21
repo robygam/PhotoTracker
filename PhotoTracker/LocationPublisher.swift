@@ -55,8 +55,8 @@ class LocationPublisher: NSObject, ObservableObject {
     }
     
     fileprivate func publishLocationAndSave(_ location: CLLocation) {
-        coordinatesPublisher.send(location)
         previousLocation = location
+        coordinatesPublisher.send(location)
     }
 }
 
