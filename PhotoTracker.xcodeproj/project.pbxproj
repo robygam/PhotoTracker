@@ -14,7 +14,7 @@
 		56A60A5228B0D2880073D343 /* PhotoTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A5128B0D2880073D343 /* PhotoTrackerTests.swift */; };
 		56A60A5C28B0D2880073D343 /* PhotoTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A5B28B0D2880073D343 /* PhotoTrackerUITests.swift */; };
 		56A60A5E28B0D2880073D343 /* PhotoTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A5D28B0D2880073D343 /* PhotoTrackerUITestsLaunchTests.swift */; };
-		56A60A6B28B0D2B20073D343 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A6A28B0D2B20073D343 /* DeviceLocationService.swift */; };
+		56A60A6B28B0D2B20073D343 /* LocationPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A6A28B0D2B20073D343 /* LocationPublisher.swift */; };
 		56A60A7128B293020073D343 /* LocationPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A7028B293020073D343 /* LocationPersistenceController.swift */; };
 		56A60A7428B2A6720073D343 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A7328B2A6720073D343 /* Photo.swift */; };
 		56A60A7828B2A6B00073D343 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A7728B2A6B00073D343 /* APIClient.swift */; };
@@ -53,7 +53,7 @@
 		56A60A5728B0D2880073D343 /* PhotoTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A60A5B28B0D2880073D343 /* PhotoTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTrackerUITests.swift; sourceTree = "<group>"; };
 		56A60A5D28B0D2880073D343 /* PhotoTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		56A60A6A28B0D2B20073D343 /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
+		56A60A6A28B0D2B20073D343 /* LocationPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPublisher.swift; sourceTree = "<group>"; };
 		56A60A7028B293020073D343 /* LocationPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPersistenceController.swift; sourceTree = "<group>"; };
 		56A60A7328B2A6720073D343 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		56A60A7728B2A6B00073D343 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -62,6 +62,7 @@
 		56A60A7E28B2A7250073D343 /* FlickrServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrServices.swift; sourceTree = "<group>"; };
 		56A60A8128B2A7A30073D343 /* LocationPhotoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPhotoCard.swift; sourceTree = "<group>"; };
 		56A60A8428B2A7E70073D343 /* StatefulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulView.swift; sourceTree = "<group>"; };
+		56A60A8628B2B1AC0073D343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +113,11 @@
 		56A60A3F28B0D2870073D343 /* PhotoTracker */ = {
 			isa = PBXGroup;
 			children = (
+				56A60A8628B2B1AC0073D343 /* Info.plist */,
 				56A60A8328B2A7CD0073D343 /* Utils */,
 				56A60A4028B0D2870073D343 /* PhotoTrackerApp.swift */,
 				56A60A7528B2A6890073D343 /* Services */,
-				56A60A6A28B0D2B20073D343 /* DeviceLocationService.swift */,
+				56A60A6A28B0D2B20073D343 /* LocationPublisher.swift */,
 				56A60A7028B293020073D343 /* LocationPersistenceController.swift */,
 				56A60A7228B2A6680073D343 /* Model */,
 				56A60A8028B2A7800073D343 /* Scenes */,
@@ -336,7 +338,7 @@
 				56A60A4328B0D2870073D343 /* ContentView.swift in Sources */,
 				56A60A7F28B2A7250073D343 /* FlickrServices.swift in Sources */,
 				56A60A8228B2A7A30073D343 /* LocationPhotoCard.swift in Sources */,
-				56A60A6B28B0D2B20073D343 /* DeviceLocationService.swift in Sources */,
+				56A60A6B28B0D2B20073D343 /* LocationPublisher.swift in Sources */,
 				56A60A7A28B2A6CA0073D343 /* DataProvider.swift in Sources */,
 				56A60A4128B0D2870073D343 /* PhotoTrackerApp.swift in Sources */,
 				56A60A7428B2A6720073D343 /* Photo.swift in Sources */,
@@ -503,6 +505,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoTracker/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotoTracker/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Tracking needed";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Tracking needed";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Tracking needed";
@@ -534,6 +537,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoTracker/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotoTracker/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Tracking needed";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Tracking needed";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Tracking needed";

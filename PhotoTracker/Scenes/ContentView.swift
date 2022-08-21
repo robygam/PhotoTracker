@@ -28,7 +28,7 @@ struct ContentView: View {
                 Text("Pause")
             }
         }.onAppear {
-            DeviceLocationService.shared.requestLocationUpdates()
+            LocationPublisher.shared.requestLocationUpdates()
         }
     }
 }

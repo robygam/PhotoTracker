@@ -9,17 +9,23 @@ import Foundation
 import Combine
 import CoreLocation
 
-class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObject {
+class LocationPublisher: NSObject, ObservableObject {
 
     var coordinatesPublisher = PassthroughSubject<CLLocation, Never>()
     var deniedLocationAccessPublisher = PassthroughSubject<Void, Never>()
 
-    static let shared = DeviceLocationService()
+    static let shared = LocationPublisher()
+    
+    fileprivate var previousLocation: CLLocation?
+    fileprivate static let distanceThreshold: Double = 30.0
 
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.delegate = self
+        manager.activityType = .otherNavigation
+        manager.allowsBackgroundLocationUpdates = true
+
         return manager
     }()
 
@@ -36,6 +42,25 @@ class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObje
             deniedLocationAccessPublisher.send()
         }
     }
+    
+    fileprivate func compareLocationWithPrevious(_ location: CLLocation) {
+        guard let previousLocation = previousLocation else {
+            publishLocationAndSave(location)
+            return
+        }
+
+        if previousLocation.distance(from: location) >= LocationPublisher.distanceThreshold {
+            publishLocationAndSave(location)
+        }
+    }
+    
+    fileprivate func publishLocationAndSave(_ location: CLLocation) {
+        coordinatesPublisher.send(location)
+        previousLocation = location
+    }
+}
+
+extension LocationPublisher: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
@@ -51,6 +76,6 @@ class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObje
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        coordinatesPublisher.send(location)
+        compareLocationWithPrevious(location)
     }
 }

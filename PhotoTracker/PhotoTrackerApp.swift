@@ -13,7 +13,7 @@ struct PhotoTrackerApp: App {
     var cancellables = [AnyCancellable]()
     
     init() {
-        DeviceLocationService.shared.coordinatesPublisher.sink(receiveValue: LocationPersistenceController.shared.add).store(in: &cancellables)
+        LocationPublisher.shared.coordinatesPublisher.sink(receiveValue: LocationPersistenceController.shared.add).store(in: &cancellables)
     }
     
     var body: some Scene {
