@@ -35,4 +35,8 @@ class LocationPersistenceController: ObservableObject {
         locations.insert(PersistenceLocation(location), at: 0)
     }
     
+    func stopAddingLocations() {
+        allowAddingLocations = false
+    }
+    
 }

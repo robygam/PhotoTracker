@@ -13,7 +13,9 @@ struct PhotoTrackerApp: App {
     var cancellables = [AnyCancellable]()
     
     init() {
-        LocationPublisher.shared.coordinatesPublisher.sink(receiveValue: LocationPersistenceController.shared.add).store(in: &cancellables)
+        let persistenceController = LocationPersistenceController.shared
+        LocationPublisher.shared.coordinatesPublisher.sink(receiveValue: persistenceController.add).store(in: &cancellables)
+        LocationPublisher.shared.deniedLocationAccessPublisher.sink(receiveValue: persistenceController.stopAddingLocations).store(in: &cancellables)
     }
     
     var body: some Scene {
