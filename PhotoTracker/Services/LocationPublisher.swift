@@ -18,6 +18,7 @@ class LocationPublisher: NSObject, ObservableObject {
     
     fileprivate var previousLocation: CLLocation?
     fileprivate static let distanceThreshold: Double = 100.0 // Replace with desired distance
+    fileprivate var distance: Double = 0
 
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -49,7 +50,9 @@ class LocationPublisher: NSObject, ObservableObject {
             return
         }
 
-        if previousLocation.distance(from: location) >= LocationPublisher.distanceThreshold {
+        distance += previousLocation.distance(from: location)
+        if distance >= LocationPublisher.distanceThreshold {
+            distance = 0
             publishLocationAndSave(location)
         }
     }
