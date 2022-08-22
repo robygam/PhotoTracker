@@ -40,6 +40,7 @@
 		56A60A8428B2A7E70073D343 /* StatefulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulView.swift; sourceTree = "<group>"; };
 		56A60A8628B2B1AC0073D343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		56A60A8928B2C3980073D343 /* PhotoCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardViewModel.swift; sourceTree = "<group>"; };
+		56A60A8E28B3903A0073D343 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		56A60A3428B0D2870073D343 = {
 			isa = PBXGroup;
 			children = (
+				56A60A8E28B3903A0073D343 /* README.md */,
 				56A60A3F28B0D2870073D343 /* PhotoTracker */,
 				56A60A3E28B0D2870073D343 /* Products */,
 			);
