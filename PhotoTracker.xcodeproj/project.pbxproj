@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56A60A4128B0D2870073D343 /* PhotoTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A4028B0D2870073D343 /* PhotoTrackerApp.swift */; };
-		56A60A4328B0D2870073D343 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A4228B0D2870073D343 /* ContentView.swift */; };
+		56A60A4328B0D2870073D343 /* PhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A4228B0D2870073D343 /* PhotoList.swift */; };
 		56A60A4528B0D2880073D343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A60A4428B0D2880073D343 /* Assets.xcassets */; };
 		56A60A4828B0D2880073D343 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A60A4728B0D2880073D343 /* Preview Assets.xcassets */; };
 		56A60A5228B0D2880073D343 /* PhotoTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A5128B0D2880073D343 /* PhotoTrackerTests.swift */; };
@@ -46,7 +46,7 @@
 /* Begin PBXFileReference section */
 		56A60A3D28B0D2870073D343 /* PhotoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A60A4028B0D2870073D343 /* PhotoTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTrackerApp.swift; sourceTree = "<group>"; };
-		56A60A4228B0D2870073D343 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		56A60A4228B0D2870073D343 /* PhotoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoList.swift; sourceTree = "<group>"; };
 		56A60A4428B0D2880073D343 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56A60A4728B0D2880073D343 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56A60A4D28B0D2880073D343 /* PhotoTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,8 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				56A60A8628B2B1AC0073D343 /* Info.plist */,
-				56A60A8328B2A7CD0073D343 /* Utils */,
 				56A60A4028B0D2870073D343 /* PhotoTrackerApp.swift */,
+				56A60A8328B2A7CD0073D343 /* Utils */,
 				56A60A7528B2A6890073D343 /* Services */,
 				56A60A6A28B0D2B20073D343 /* LocationPublisher.swift */,
 				56A60A7028B293020073D343 /* LocationPersistenceController.swift */,
@@ -193,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				56A60A8828B2C35F0073D343 /* Components */,
-				56A60A4228B0D2870073D343 /* ContentView.swift */,
+				56A60A4228B0D2870073D343 /* PhotoList.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A60A7128B293020073D343 /* LocationPersistenceController.swift in Sources */,
-				56A60A4328B0D2870073D343 /* ContentView.swift in Sources */,
+				56A60A4328B0D2870073D343 /* PhotoList.swift in Sources */,
 				56A60A7F28B2A7250073D343 /* FlickrServices.swift in Sources */,
 				56A60A8228B2A7A30073D343 /* PhotoCard.swift in Sources */,
 				56A60A6B28B0D2B20073D343 /* LocationPublisher.swift in Sources */,

@@ -11,17 +11,11 @@ import Combine
 extension PhotoCard {
     class ViewModel: StatefullViewModel, ObservableObject {
         @Published var state: ViewState
-        @Published var photoURL: String = String() {
-            didSet {
-                didChange.send(self)
-            }
-        }
+        @Published var photoURL: String = String()
 
         var latitude: Double
         var longitude: Double
         
-        let didChange = PassthroughSubject<ViewModel, Never>()
-
         init(latitude: Double, longitude: Double) {
             self.latitude = latitude
             self.longitude = longitude

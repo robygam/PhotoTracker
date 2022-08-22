@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PhotoList.swift
 //  PhotoTracker
 //
 //  Created by Roberto Garcia on 20/08/2022.
@@ -8,16 +8,15 @@
 import SwiftUI
 import Combine
 
-struct ContentView: View {
+struct PhotoList: View {
     @ObservedObject var persistenceController = LocationPersistenceController.shared
     
     var body: some View {
-        ZStack {
-            List {
-                ForEach(persistenceController.locations) { location in
-                    PhotoCard(viewModel: PhotoCard.ViewModel(latitude: location.latitude, longitude: location.longitude))
-                        .listRowSeparator(.hidden)
-                }
+        List {
+            ForEach(persistenceController.locations) { location in
+                PhotoCard(viewModel: PhotoCard.ViewModel(latitude: location.latitude, longitude: location.longitude))
+                    .listRowSeparator(.hidden)
+                    .frame(minWidth: 300, minHeight: 50, alignment: .center)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -33,10 +32,10 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PhotoList_Previews: PreviewProvider {
     
     static var previews: some View {
-        ContentView()
+        PhotoList()
     }
     
 }
