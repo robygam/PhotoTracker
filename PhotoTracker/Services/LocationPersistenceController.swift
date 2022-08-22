@@ -8,12 +8,6 @@
 import Foundation
 import Combine
 
-struct PersistenceLocation: Identifiable {
-    let id = UUID()
-    let latitude: Double
-    let longitude: Double
-}
-
 class LocationPersistenceController: ObservableObject {
     
     static let shared = LocationPersistenceController()

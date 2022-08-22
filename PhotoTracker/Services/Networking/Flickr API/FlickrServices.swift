@@ -44,7 +44,7 @@ class FlickrServices: FlickrContentService {
                                          "per_page": 1,
                                          "extras": "geo, url_m"]
         
-        dataProvider.request(path: "", parameters: parameters, method: .get) { response in
+        dataProvider.request(parameters: parameters, method: .get) { response in
             DispatchQueue.main.async {
                 completion(response)
             }

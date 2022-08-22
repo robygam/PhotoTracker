@@ -45,7 +45,7 @@ extension APIClient {
 }
 
 extension APIClient: DataProvidable {
-    func requestJSON(path: String, parameters: [String: Any]? = nil, method: APIClient.Method, auth: AuthMethod? = .default, result: @escaping (Result<Data, Error>) -> Void) {
+    func requestJSON(path: String = "", parameters: [String: Any]? = nil, method: APIClient.Method, auth: AuthMethod? = .default, result: @escaping (Result<Data, Error>) -> Void) {
 
         let background = DispatchQueue.global(qos: .background)
 

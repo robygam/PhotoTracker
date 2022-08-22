@@ -24,7 +24,7 @@ class DataProvider {
 
     static var defaultDecoder: JSONDecoder = JSONDecoder()
 
-    func request<T: Codable>(path: String, parameters: [String: Any]? = nil, method: APIClient.Method, decoder: JSONDecoder = DataProvider.defaultDecoder, auth: AuthMethod? = .default, result: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Codable>(path: String = "", parameters: [String: Any]? = nil, method: APIClient.Method, decoder: JSONDecoder = DataProvider.defaultDecoder, auth: AuthMethod? = .default, result: @escaping (Result<T, Error>) -> Void) {
         provider.requestJSON(path: path, parameters: parameters, method: method, auth: auth) { response in
             switch response {
             case .success(let data):
