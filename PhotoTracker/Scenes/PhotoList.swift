@@ -22,10 +22,10 @@ struct PhotoList: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button(action: {
-                print("Pause")
-            }) {
-                Text("Pause")
-            }
+                persistenceController.allowAddingLocations = !persistenceController.allowAddingLocations
+            }, label: {
+                Text(persistenceController.allowAddingLocations ? "Stop" : "Start")
+            })
         }.onAppear {
             LocationPublisher.shared.requestLocationUpdates()
         }

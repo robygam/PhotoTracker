@@ -1,5 +1,5 @@
 //
-//  LocationController.swift
+//  LocationPublisher.swift
 //  PhotoTracker
 //
 //  Created by Roberto Garcia on 20/08/2022.
@@ -17,7 +17,7 @@ class LocationPublisher: NSObject, ObservableObject {
     static let shared = LocationPublisher()
     
     fileprivate var previousLocation: CLLocation?
-    fileprivate static let distanceThreshold: Double = 30.0
+    fileprivate static let distanceThreshold: Double = 100.0 // Replace with desired distance
 
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
