@@ -17,7 +17,7 @@ class LocationPublisher: NSObject, ObservableObject {
     static let shared = LocationPublisher()
     
     fileprivate var previousLocation: CLLocation?
-    fileprivate static let distanceThreshold: Double = 100.0 // Replace with desired distance
+    fileprivate static let distanceThreshold: Double = 10.0 // Replace with desired distance
 
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()

@@ -42,7 +42,7 @@ class FlickrServices: FlickrContentService {
                                          "format": "json",
                                          "nojsoncallback": 1,
                                          "per_page": 1,
-                                         "extras": "geo, url_m, url_l"]
+                                         "extras": "geo, url_m"]
         
         dataProvider.request(path: "", parameters: parameters, method: .get) { response in
             DispatchQueue.main.async {
