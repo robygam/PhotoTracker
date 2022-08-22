@@ -18,7 +18,7 @@ class LocationPublisher: NSObject, ObservableObject {
     
     fileprivate var previousLocation: CLLocation?
     fileprivate static let distanceThreshold: Double = 100.0 // Replace with desired distance
-    fileprivate var distance: Double = 0
+    fileprivate var elapsedDistance: Double = 0
 
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -50,9 +50,10 @@ class LocationPublisher: NSObject, ObservableObject {
             return
         }
 
-        distance += previousLocation.distance(from: location)
-        if distance >= LocationPublisher.distanceThreshold {
-            distance = 0
+        // We are interested in elapsed distance
+        elapsedDistance += previousLocation.distance(from: location)
+        if elapsedDistance >= LocationPublisher.distanceThreshold {
+            elapsedDistance = 0
             publishLocationAndSave(location)
         }
     }
