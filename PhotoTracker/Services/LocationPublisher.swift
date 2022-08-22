@@ -11,7 +11,7 @@ import CoreLocation
 
 class LocationPublisher: NSObject, ObservableObject {
 
-    var coordinatesPublisher = PassthroughSubject<CLLocation, Never>()
+    var coordinatesPublisher = PassthroughSubject<PersistenceLocation, Never>()
     var deniedLocationAccessPublisher = PassthroughSubject<Void, Never>()
 
     static let shared = LocationPublisher()
@@ -56,7 +56,7 @@ class LocationPublisher: NSObject, ObservableObject {
     
     fileprivate func publishLocationAndSave(_ location: CLLocation) {
         previousLocation = location
-        coordinatesPublisher.send(location)
+        coordinatesPublisher.send(PersistenceLocation(location))
     }
 }
 
@@ -77,5 +77,12 @@ extension LocationPublisher: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         compareLocationWithPrevious(location)
+    }
+}
+
+extension PersistenceLocation {
+    init(_ location: CLLocation) {
+        self.latitude = location.coordinate.latitude
+        self.longitude = location.coordinate.longitude
     }
 }
