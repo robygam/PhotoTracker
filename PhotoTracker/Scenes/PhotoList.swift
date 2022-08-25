@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct PhotoList: View {
+    
     @ObservedObject var persistenceController = LocationPersistenceController.shared
     
     var body: some View {
