@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5698E1F128BA739800DE6FD2 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698E1F028BA739800DE6FD2 /* PhotoDetail.swift */; };
 		56A60A4128B0D2870073D343 /* PhotoTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A4028B0D2870073D343 /* PhotoTrackerApp.swift */; };
 		56A60A4328B0D2870073D343 /* PhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A4228B0D2870073D343 /* PhotoList.swift */; };
 		56A60A4528B0D2880073D343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A60A4428B0D2880073D343 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5698E1F028BA739800DE6FD2 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
 		56A60A3D28B0D2870073D343 /* PhotoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A60A4028B0D2870073D343 /* PhotoTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTrackerApp.swift; sourceTree = "<group>"; };
 		56A60A4228B0D2870073D343 /* PhotoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoList.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				56A60A4228B0D2870073D343 /* PhotoList.swift */,
 				56A60A8828B2C35F0073D343 /* Components */,
+				5698E1F028BA739800DE6FD2 /* PhotoDetail.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				56A60A4328B0D2870073D343 /* PhotoList.swift in Sources */,
 				56A60A7F28B2A7250073D343 /* FlickrServices.swift in Sources */,
 				56A60A8228B2A7A30073D343 /* PhotoCard.swift in Sources */,
+				5698E1F128BA739800DE6FD2 /* PhotoDetail.swift in Sources */,
 				56A60A6B28B0D2B20073D343 /* LocationPublisher.swift in Sources */,
 				56A60A7A28B2A6CA0073D343 /* DataProvider.swift in Sources */,
 				56A60A4128B0D2870073D343 /* PhotoTrackerApp.swift in Sources */,

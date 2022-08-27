@@ -9,13 +9,13 @@ import SwiftUI
 import Combine
 
 struct PhotoList: View {
-    let locationPublisher = LocationPublisher()
+    @ObservedObject var locationPublisher = LocationPublisher()
     @ObservedObject var persistenceController = LocationPersistenceController()
     var cancellables = [AnyCancellable]()
 
     init() {
         locationPublisher.coordinatesPublisher.sink(receiveValue: persistenceController.add).store(in: &cancellables)
-        locationPublisher.deniedLocationAccessPublisher.sink(receiveValue: persistenceController.stopAddingLocations).store(in: &cancellables)
+        locationPublisher.deniedLocationAccessPublisher.sink(receiveValue: locationPublisher.stopUpdatingLocation).store(in: &cancellables)
     }
     
     var body: some View {
@@ -29,9 +29,9 @@ struct PhotoList: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button(action: {
-                persistenceController.allowAddingLocations = !persistenceController.allowAddingLocations
+                locationPublisher.toggleLocationUpdate()
             }, label: {
-                Text(persistenceController.allowAddingLocations ? "Stop" : "Start")
+                Text(locationPublisher.isLocationUpdating ? "Stop" : "Start")
             })
         }.onAppear {
             locationPublisher.requestLocationUpdates()

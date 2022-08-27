@@ -15,8 +15,10 @@ class LocationPublisher: NSObject, ObservableObject {
     var deniedLocationAccessPublisher = PassthroughSubject<Void, Never>()
     
     fileprivate var previousLocation: CLLocation?
-    fileprivate static let distanceThreshold: Double = 10.0 // Replace with desired distance
+    fileprivate static let distanceThreshold: Double = 100.0 // Replace with desired distance
     fileprivate var elapsedDistance: Double = 0
+    
+    @Published private(set) var isLocationUpdating: Bool = false
 
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -35,11 +37,26 @@ class LocationPublisher: NSObject, ObservableObject {
             locationManager.requestWhenInUseAuthorization()
             
         case .authorizedWhenInUse, .authorizedAlways:
+            isLocationUpdating = true
             locationManager.startUpdatingLocation()
             
         default:
+            locationManager.stopUpdatingLocation()
             deniedLocationAccessPublisher.send()
         }
+    }
+    
+    func toggleLocationUpdate() {
+        if isLocationUpdating {
+            stopUpdatingLocation()
+        } else {
+            locationManager.startUpdatingLocation()
+        }
+        isLocationUpdating = !isLocationUpdating
+    }
+    
+    func stopUpdatingLocation() {
+        locationManager.stopUpdatingLocation()
     }
     
     fileprivate func compareLocationWithPrevious(_ location: CLLocation) {
@@ -66,12 +83,12 @@ extension LocationPublisher: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
-            
         case .authorizedWhenInUse, .authorizedAlways:
             manager.startUpdatingLocation()
-            
+            isLocationUpdating = true
         default:
             manager.stopUpdatingLocation()
+            isLocationUpdating = false
             deniedLocationAccessPublisher.send()
         }
     }
