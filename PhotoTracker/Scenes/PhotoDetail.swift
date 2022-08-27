@@ -11,13 +11,6 @@ import MapKit
 struct PhotoDetail: View {
     var viewModel: ViewModel
     
-    @State private var region = MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 37.334_900,
-                                           longitude: -122.009_020),
-            latitudinalMeters: 750,
-            longitudinalMeters: 750
-        )
-    
     var body: some View {
         VStack {
             AsyncImage(url: URL(string: viewModel.imageURL)) { phase in
@@ -39,9 +32,8 @@ struct PhotoDetail: View {
                 }
             }
             Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: viewModel.location.latitude, longitude: viewModel.location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))), interactionModes: [])
-                .frame(width: 400, height: 300)
+                    .frame(width: .infinity, height: 300)
         }
-        .padding()
         
     }
 }
