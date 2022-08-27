@@ -9,9 +9,7 @@ import Foundation
 import Combine
 
 class LocationPersistenceController: ObservableObject {
-    
-    static let shared = LocationPersistenceController()
-    
+        
     @Published var locations: [PersistenceLocation] = []
     @Published var allowAddingLocations: Bool = false
         

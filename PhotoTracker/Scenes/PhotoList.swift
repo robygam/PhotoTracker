@@ -9,8 +9,14 @@ import SwiftUI
 import Combine
 
 struct PhotoList: View {
-    
-    @ObservedObject var persistenceController = LocationPersistenceController.shared
+    let locationPublisher = LocationPublisher()
+    @ObservedObject var persistenceController = LocationPersistenceController()
+    var cancellables = [AnyCancellable]()
+
+    init() {
+        locationPublisher.coordinatesPublisher.sink(receiveValue: persistenceController.add).store(in: &cancellables)
+        locationPublisher.deniedLocationAccessPublisher.sink(receiveValue: persistenceController.stopAddingLocations).store(in: &cancellables)
+    }
     
     var body: some View {
         List {
@@ -28,7 +34,7 @@ struct PhotoList: View {
                 Text(persistenceController.allowAddingLocations ? "Stop" : "Start")
             })
         }.onAppear {
-            LocationPublisher.shared.requestLocationUpdates()
+            locationPublisher.requestLocationUpdates()
         }
     }
 }

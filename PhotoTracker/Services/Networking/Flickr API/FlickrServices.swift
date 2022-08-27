@@ -16,7 +16,7 @@ struct SearchResponse: Codable {
     let stat: String
     
     var photoURL: String {
-        photos.photoList.first?.photoURL ?? ""
+        photos.photoList.randomElement()?.photoURL ?? ""
     }
 }
 
@@ -41,7 +41,7 @@ class FlickrServices: FlickrContentService {
                                          "lon": longitude,
                                          "format": "json",
                                          "nojsoncallback": 1,
-                                         "per_page": 1,
+                                         "per_page": 100,
                                          "extras": "geo, url_m"]
         
         dataProvider.request(parameters: parameters, method: .get) { response in

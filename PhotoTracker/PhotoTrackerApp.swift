@@ -10,14 +10,6 @@ import Combine
 
 @main
 struct PhotoTrackerApp: App {
-    var cancellables = [AnyCancellable]()
-    
-    init() {
-        let persistenceController = LocationPersistenceController.shared
-        LocationPublisher.shared.coordinatesPublisher.sink(receiveValue: persistenceController.add).store(in: &cancellables)
-        LocationPublisher.shared.deniedLocationAccessPublisher.sink(receiveValue: persistenceController.stopAddingLocations).store(in: &cancellables)
-    }
-    
     var body: some Scene {
         WindowGroup {
             NavigationView {
