@@ -15,7 +15,7 @@ class LocationPublisher: NSObject, ObservableObject {
     var deniedLocationAccessPublisher = PassthroughSubject<Void, Never>()
     
     fileprivate var previousLocation: CLLocation?
-    fileprivate static let distanceThreshold: Double = 100.0 // Replace with desired distance
+    fileprivate static let distanceThreshold: Double = 100.0
     fileprivate var elapsedDistance: Double = 0
     
     @Published private(set) var isLocationUpdating: Bool = false
