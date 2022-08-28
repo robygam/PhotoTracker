@@ -64,7 +64,7 @@ struct PhotoCard: View {
 
 struct LocationPhotoCard_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoCard(viewModel: PhotoCard.ViewModel(latitude: 30, longitude: -122))
+        PhotoCard(viewModel: PhotoCard.ViewModel(latitude: 42.40364319359173, longitude: -8.81154541729284))
             .padding()
             .previewLayout(.sizeThatFits)
     }
