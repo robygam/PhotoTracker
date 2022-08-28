@@ -30,6 +30,10 @@ struct PhotoCard: View {
                                         .aspectRatio(contentMode: .fit)
                                         .frame(minWidth: 300, minHeight: 100)
                                         .cornerRadius(12)
+                                    Text(photo.title)
+                                        .font(.system(size: 13))
+                                        .multilineTextAlignment(.center)
+                                        .padding()
                                 case .failure:
                                     HStack(spacing: 8) {
                                         Image(systemName: "photo")
@@ -39,10 +43,7 @@ struct PhotoCard: View {
                                     EmptyView()
                                 }
                             }
-                            Text(photo.title)
-                                .font(.system(size: 13))
-                                .multilineTextAlignment(.center)
-                                .padding(4)
+                            
                         }
                         .padding(8)
                         .background(Color.white)
