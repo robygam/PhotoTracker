@@ -33,8 +33,6 @@ struct PhotoList: View {
             }, label: {
                 Text(locationPublisher.isLocationUpdating ? "Stop" : "Start")
             })
-        }.onAppear {
-            locationPublisher.requestLocationUpdates()
         }
     }
 }

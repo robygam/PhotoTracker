@@ -37,7 +37,6 @@ class LocationPublisher: NSObject, ObservableObject {
             locationManager.requestWhenInUseAuthorization()
             
         case .authorizedWhenInUse, .authorizedAlways:
-            isLocationUpdating = true
             locationManager.startUpdatingLocation()
             
         default:
@@ -50,7 +49,7 @@ class LocationPublisher: NSObject, ObservableObject {
         if isLocationUpdating {
             stopUpdatingLocation()
         } else {
-            locationManager.startUpdatingLocation()
+            requestLocationUpdates()
         }
         isLocationUpdating = !isLocationUpdating
     }

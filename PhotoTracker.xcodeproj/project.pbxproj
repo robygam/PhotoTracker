@@ -139,8 +139,8 @@
 		56A60A8028B2A7800073D343 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				56A60A4228B0D2870073D343 /* PhotoList.swift */,
 				56A60A8828B2C35F0073D343 /* Components */,
+				56A60A4228B0D2870073D343 /* PhotoList.swift */,
 				5698E1F028BA739800DE6FD2 /* PhotoDetail.swift */,
 			);
 			path = Scenes;

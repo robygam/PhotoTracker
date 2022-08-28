@@ -47,6 +47,6 @@ extension PhotoCard {
 
 extension PhotoCard {
     enum PhotoError: Error {
-    case emptyPhoto
+        case emptyPhoto
     }
 }
