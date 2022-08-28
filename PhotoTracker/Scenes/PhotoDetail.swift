@@ -8,6 +8,12 @@
 import SwiftUI
 import MapKit
 
+struct PhotoDetailLocation: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
+
 struct PhotoDetail: View {
     var viewModel: ViewModel
     
@@ -31,9 +37,22 @@ struct PhotoDetail: View {
                     EmptyView()
                 }
             }
-            Map(coordinateRegion: .constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: viewModel.location.latitude, longitude: viewModel.location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))), interactionModes: [])
-                    .frame(width: .infinity, height: 300)
+            let mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: viewModel.location.latitude, longitude: viewModel.location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
+            let location = PhotoDetailLocation(name: "", coordinate: CLLocationCoordinate2D(latitude: viewModel.location.latitude, longitude: viewModel.location.longitude))
+            Map(coordinateRegion: .constant(mapRegion), interactionModes: [], annotationItems: [location]) { location in
+                MapAnnotation(coordinate: location.coordinate) {
+                    Circle()
+                        .strokeBorder(.white, lineWidth: 2)
+                        .background(content: {
+                            Circle().foregroundColor(.blue)
+                            Image(systemName: "camera").foregroundColor(.white)
+                        })
+                        .frame(width: 44, height: 44)
+                    
+                }
+            }
         }
+        .padding(16)
         
     }
 }
