@@ -39,7 +39,7 @@ class FlickrServices: FlickrContentService {
         let parameters: [String: Any] = ["method": "flickr.photos.search",
                                          "lat": latitude,
                                          "lon": longitude,
-                                         "radius": 0.1,
+                                         "radius": 1,
                                          "format": "json",
                                          "nojsoncallback": 1,
                                          "per_page": 100,
