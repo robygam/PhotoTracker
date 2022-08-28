@@ -19,7 +19,7 @@ struct PhotoDetail: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: viewModel.imageURL)) { phase in
+            AsyncImage(url: URL(string: viewModel.photo.photoURL)) { phase in
                 switch phase {
                 case .empty:
                     ProgressView()
@@ -37,8 +37,8 @@ struct PhotoDetail: View {
                     EmptyView()
                 }
             }
-            let mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: viewModel.location.latitude, longitude: viewModel.location.longitude), span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
-            let location = PhotoDetailLocation(name: "", coordinate: CLLocationCoordinate2D(latitude: viewModel.location.latitude, longitude: viewModel.location.longitude))
+            let mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: viewModel.photo.lat, longitude: viewModel.photo.lon), span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
+            let location = PhotoDetailLocation(name: "", coordinate: CLLocationCoordinate2D(latitude: viewModel.photo.lat, longitude: viewModel.photo.lon))
             Map(coordinateRegion: .constant(mapRegion), interactionModes: [], annotationItems: [location]) { location in
                 MapAnnotation(coordinate: location.coordinate) {
                     Circle()
@@ -53,21 +53,23 @@ struct PhotoDetail: View {
             }
         }
         .padding(16)
+        .navigationTitle(viewModel.photo.title)
         
     }
 }
 
 struct PhotoDetail_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoDetail(viewModel: PhotoDetail.ViewModel(imageURL: "https://sp-ao.shortpixel.ai/client/q_lossy,ret_img,w_600/https://www.senderismoeuropa.com/wp-content/uploads/2014/10/trekking-senderismo-hiking-excursionismo2-600x399.jpg", location: PersistenceLocation(latitude: 42.40364319359173, longitude: -8.81154541729284)))
+        NavigationView {
+        PhotoDetail(viewModel: PhotoDetail.ViewModel(photo: Photo(latitude: 42.40364319359173, longitude: -8.81154541729284, photoURL: "https://sp-ao.shortpixel.ai/client/q_lossy,ret_img,w_600/https://www.senderismoeuropa.com/wp-content/uploads/2014/10/trekking-senderismo-hiking-excursionismo2-600x399.jpg", title: "Test Photo")))
             .padding()
             .previewLayout(.sizeThatFits)
+        }
     }
 }
 
 extension PhotoDetail {
     struct ViewModel {
-        let imageURL: String
-        let location: PersistenceLocation
+        let photo: Photo
     }
 }

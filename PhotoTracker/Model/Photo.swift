@@ -8,13 +8,30 @@
 import Foundation
 
 struct Photo: Codable {
-    let id: String
-    let latitude: String
-    let longitude: String
+    private let id: String
+    private let latitude: String
+    private let longitude: String
     let photoURL: String
+    let title: String
+    
+    var lat: Double {
+        Double(latitude) ?? 0.0
+    }
+    
+    var lon: Double {
+        Double(longitude) ?? 0.0
+    }
     
     enum CodingKeys: String, CodingKey {
-        case id, latitude, longitude
+        case id, latitude, longitude, title
         case photoURL = "url_m"
+    }
+    
+    init(latitude: Double, longitude: Double, photoURL: String, title: String) {
+        self.id = UUID().uuidString
+        self.latitude = String(latitude)
+        self.longitude = String(longitude)
+        self.photoURL = photoURL
+        self.title = title
     }
 }

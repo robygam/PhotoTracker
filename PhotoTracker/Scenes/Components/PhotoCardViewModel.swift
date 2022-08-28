@@ -11,7 +11,7 @@ import Combine
 extension PhotoCard {
     class ViewModel: StatefullViewModel, ObservableObject {
         @Published var state: ViewState
-        @Published var photoURL: String = String()
+        @Published var photo: Photo?
 
         var latitude: Double
         var longitude: Double
@@ -31,12 +31,22 @@ extension PhotoCard {
             FlickrServices().searchPhotos(latitude: latitude, longitude: longitude) { result in
                 switch result {
                 case .success(let searchResult):
-                    self.photoURL = searchResult.photoURL
-                    self.state = .ready
+                    if let photo = searchResult.randomPhoto {
+                        self.photo = photo
+                        self.state = .ready
+                    } else {
+                        self.state = .failed(PhotoCard.PhotoError.emptyPhoto)
+                    }
                 case .failure(let error):
                     self.state = .failed(error)
                 }
             }
         }
+    }
+}
+
+extension PhotoCard {
+    enum PhotoError: Error {
+    case emptyPhoto
     }
 }

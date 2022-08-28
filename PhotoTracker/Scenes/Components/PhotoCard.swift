@@ -17,32 +17,39 @@ struct PhotoCard: View {
             case .loading:
                 ProgressView()
             case .ready:
-                let detailView = PhotoDetail(viewModel: PhotoDetail.ViewModel(imageURL: viewModel.photoURL, location: PersistenceLocation(latitude: viewModel.latitude, longitude: viewModel.longitude)))
-                NavigationLink(destination: detailView) {
-                    VStack {
-                        AsyncImage(url: URL(string: viewModel.photoURL)) { phase in
-                            switch phase {
-                            case .empty:
-                                ProgressView()
-                            case .success(let image):
-                                image.resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(minWidth: 300, minHeight: 100)
-                                    .cornerRadius(12)
-                            case .failure:
-                                HStack(spacing: 8) {
-                                    Image(systemName: "photo")
-                                    Text("Error fetching image")
+                if let photo = viewModel.photo {
+                    let detailView = PhotoDetail(viewModel: PhotoDetail.ViewModel(photo: photo))
+                    NavigationLink(destination: detailView) {
+                        VStack {
+                            AsyncImage(url: URL(string: photo.photoURL)) { phase in
+                                switch phase {
+                                case .empty:
+                                    ProgressView()
+                                case .success(let image):
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(minWidth: 300, minHeight: 100)
+                                        .cornerRadius(12)
+                                case .failure:
+                                    HStack(spacing: 8) {
+                                        Image(systemName: "photo")
+                                        Text("Error fetching image")
+                                    }
+                                @unknown default:
+                                    EmptyView()
                                 }
-                            @unknown default:
-                                EmptyView()
                             }
                         }
+                        .padding(8)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 0)
                     }
-                    .padding(8)
-                    .background(Color.white)
-                    .cornerRadius(12)
-                    .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 0)
+                } else {
+                    HStack(spacing: 8) {
+                        Image(systemName: "photo")
+                        Text("Error fetching image")
+                    }
                 }
             case .failed:
                 HStack(spacing: 8) {

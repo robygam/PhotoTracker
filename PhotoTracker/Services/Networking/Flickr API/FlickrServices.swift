@@ -15,8 +15,8 @@ struct SearchResponse: Codable {
     let photos: FlickrPhotos
     let stat: String
     
-    var photoURL: String {
-        photos.photoList.randomElement()?.photoURL ?? ""
+    var randomPhoto: Photo? {
+        photos.photoList.randomElement()
     }
 }
 
@@ -39,6 +39,7 @@ class FlickrServices: FlickrContentService {
         let parameters: [String: Any] = ["method": "flickr.photos.search",
                                          "lat": latitude,
                                          "lon": longitude,
+                                         "radius": 0.1,
                                          "format": "json",
                                          "nojsoncallback": 1,
                                          "per_page": 100,
