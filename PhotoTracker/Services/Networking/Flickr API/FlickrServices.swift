@@ -15,8 +15,10 @@ struct SearchResponse: Codable {
     let photos: FlickrPhotos
     let stat: String
     
-    var randomPhoto: Photo? {
-        photos.photoList.randomElement()
+    var randomTitledPhoto: Photo? {
+        photos.photoList
+            .filter { !$0.title.isEmpty }
+            .randomElement()
     }
 }
 

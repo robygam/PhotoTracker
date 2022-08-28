@@ -31,7 +31,7 @@ extension PhotoCard {
             FlickrServices().searchPhotos(latitude: latitude, longitude: longitude) { result in
                 switch result {
                 case .success(let searchResult):
-                    if let photo = searchResult.randomPhoto {
+                    if let photo = searchResult.randomTitledPhoto {
                         self.photo = photo
                         self.state = .ready
                     } else {
