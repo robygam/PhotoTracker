@@ -10,7 +10,6 @@ import MapKit
 
 struct PhotoDetailLocation: Identifiable {
     let id = UUID()
-    let name: String
     let coordinate: CLLocationCoordinate2D
 }
 
@@ -19,6 +18,10 @@ struct PhotoDetail: View {
     
     var body: some View {
         VStack {
+            Text(viewModel.photo.title)
+                .font(.system(size: 25, weight: .bold))
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.blue)
             AsyncImage(url: URL(string: viewModel.photo.photoURL)) { phase in
                 switch phase {
                 case .empty:
@@ -38,7 +41,7 @@ struct PhotoDetail: View {
                 }
             }
             let mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: viewModel.photo.lat, longitude: viewModel.photo.lon), span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
-            let location = PhotoDetailLocation(name: "", coordinate: CLLocationCoordinate2D(latitude: viewModel.photo.lat, longitude: viewModel.photo.lon))
+            let location = PhotoDetailLocation(coordinate: CLLocationCoordinate2D(latitude: viewModel.photo.lat, longitude: viewModel.photo.lon))
             Map(coordinateRegion: .constant(mapRegion), interactionModes: [], annotationItems: [location]) { location in
                 MapAnnotation(coordinate: location.coordinate) {
                     Circle()
@@ -48,13 +51,10 @@ struct PhotoDetail: View {
                             Image(systemName: "camera").foregroundColor(.white)
                         })
                         .frame(width: 44, height: 44)
-                    
                 }
             }
         }
         .padding(16)
-        .navigationTitle(viewModel.photo.title)
-        
     }
 }
 

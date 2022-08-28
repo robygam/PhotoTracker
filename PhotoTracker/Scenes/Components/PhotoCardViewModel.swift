@@ -11,7 +11,7 @@ import Combine
 extension PhotoCard {
     class ViewModel: StatefullViewModel, ObservableObject {
         @Published var state: ViewState
-        @Published var photo: Photo?
+        var photo: Photo?
 
         var latitude: Double
         var longitude: Double
