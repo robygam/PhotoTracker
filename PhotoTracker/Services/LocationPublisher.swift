@@ -64,7 +64,7 @@ class LocationPublisher: NSObject, ObservableObject {
             return
         }
 
-        // We are interested in elapsed distance
+        // We are interested in elapsed distance not possition from previous coordenates
         elapsedDistance += previousLocation.distance(from: location)
         if elapsedDistance >= LocationPublisher.distanceThreshold {
             elapsedDistance = 0
