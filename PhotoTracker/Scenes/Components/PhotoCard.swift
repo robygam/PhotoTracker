@@ -31,6 +31,7 @@ struct PhotoCard: View {
                                         .frame(minWidth: 300, minHeight: 100)
                                         .cornerRadius(12)
                                     Text(photo.title)
+                                        .foregroundColor(.black)
                                         .font(.system(size: 13))
                                         .multilineTextAlignment(.center)
                                         .padding()
