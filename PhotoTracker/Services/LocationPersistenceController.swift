@@ -14,7 +14,6 @@ class LocationPersistenceController: ObservableObject {
         
     func add(location: PersistenceLocation) {
         // Locations added in the top so they are shown from latests to oldest.
-        // I considered adding an extra property like timestamp but didn't to make it simpler.
         locations.insert(location, at: 0)
     }
 }
