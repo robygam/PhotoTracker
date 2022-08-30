@@ -27,8 +27,8 @@ struct Photo: Codable {
         case photoURL = "url_m"
     }
     
-    init(latitude: Double, longitude: Double, photoURL: String, title: String) {
-        self.id = UUID().uuidString
+    init(id: String = UUID().uuidString, latitude: Double, longitude: Double, photoURL: String, title: String) {
+        self.id = id
         self.latitude = String(latitude)
         self.longitude = String(longitude)
         self.photoURL = photoURL
@@ -37,7 +37,8 @@ struct Photo: Codable {
 }
 
 extension Photo: Equatable {
+    /// In order to be same photo it's just needed to have same url
     static func == (lhs: Photo, rhs: Photo) -> Bool {
-        return lhs.id == rhs.id && lhs.photoURL == rhs.photoURL
+        return lhs.photoURL == rhs.photoURL
     }
 }

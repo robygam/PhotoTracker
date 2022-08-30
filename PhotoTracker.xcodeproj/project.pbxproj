@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		566DEE9728BEC0DA002F5B48 /* FlickServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566DEE9628BEC0DA002F5B48 /* FlickServicesTests.swift */; };
+		566DEE9A28BECCD9002F5B48 /* PhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566DEE9928BECCD9002F5B48 /* PhotoTests.swift */; };
 		5698E1F128BA739800DE6FD2 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5698E1F028BA739800DE6FD2 /* PhotoDetail.swift */; };
 		56A60A4128B0D2870073D343 /* PhotoTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A4028B0D2870073D343 /* PhotoTrackerApp.swift */; };
 		56A60A4328B0D2870073D343 /* PhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A60A4228B0D2870073D343 /* PhotoList.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		566DEE8C28BEC05E002F5B48 /* PhotoTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		566DEE9628BEC0DA002F5B48 /* FlickServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickServicesTests.swift; sourceTree = "<group>"; };
+		566DEE9928BECCD9002F5B48 /* PhotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTests.swift; sourceTree = "<group>"; };
 		5698E1F028BA739800DE6FD2 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
 		56A60A3D28B0D2870073D343 /* PhotoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A60A4028B0D2870073D343 /* PhotoTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTrackerApp.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				566DEE9628BEC0DA002F5B48 /* FlickServicesTests.swift */,
+				566DEE9928BECCD9002F5B48 /* PhotoTests.swift */,
 			);
 			path = PhotoTrackerTests;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				566DEE9A28BECCD9002F5B48 /* PhotoTests.swift in Sources */,
 				566DEE9728BEC0DA002F5B48 /* FlickServicesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
